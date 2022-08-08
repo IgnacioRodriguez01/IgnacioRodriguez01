@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: var(--text);
+    text-decoration: none;
+}
+
+:root {
+    --gradient: linear-gradient(90deg, #EDCA85 -2.79%, #F097AD 29.91%, #A16EEA 62.6%, #A0E2FE 95.3%);
+    --primary: #1B2430;
+    --secondary: #434669;
+    --secondary-bg: #253344;
+    --tertiary: #816797;
+    --text: #FFFFFF;
+    --text-2: #D6D5A8;
+}
+
+body {
+    font-family: 'Consolas';
+    background: var(--primary);
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    z-index: 100;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: rgba(67, 70, 105, 0.7);
+    backdrop-filter: blur(5px);
+}
+.menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu a{
+    margin-right: 25px;
+}
+.menu img {
+    height: 40px;
+}
+
+/** Front page **/
+.front-page {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lang-mode {
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+.lang-mode a {
+    color: var(--text-2);
+}
+.lang-mode svg{
+    height: 1.1rem;
+    margin-left: 20px;
+    fill: var(--text-2);
+    margin-bottom: -3px;
+}
+.wrapper {
+    width: min-content;
+}
+.front-page h1 {
+    background: linear-gradient(-45deg, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    -webkit-animation: gradient 15s linear infinite;
+    -moz-animation: gradient 15s linear infinite;
+    animation: gradient 15s linear infinite;
+
+    font-weight: 700;
+    font-size: 3rem;
+}
+.front-page p {
+    margin-top: 18px;
+    font-size: 1.25rem;
+    min-width: 270px;
+}
+.chevron {
+    position: absolute;
+    height: 50px;
+    bottom: 75px;
+}
+
+/** Mejorar title **/
+.title-grad {
+    position: relative;
+    width: 100vw;
+    height: 70px;
+    /* overflow-x: hidden; */
+    display: flex;
+    justify-content: center;
+}
+.title-grad .div-title{
+    position: absolute;
+    top: 7px;
+    background-color: var(--secondary);
+    z-index: 10;
+    transform: rotate(-2deg);
+    height: 60px;
+    width: 101%;
+    display: flex;
+    align-items: center;
+}
+.div-title h2{
+    margin-left: 20px;
+}
+.title-grad .div-grad{
+    position: absolute;
+    top: 7px;
+    background: var(--gradient);
+    z-index: 5;
+    transform: rotate(2deg);
+    height: 60px;
+    width: 101%;
+}
+
+/** About Me **/
+.about-me {
+    background: var(--secondary-bg);
+    height: 50vh;
+    width: 90vw;
+    border-radius: 7px;
+    box-sizing: border-box;
+    padding: 15px 10px 20px 10px;
+}
+code {
+    display: flex;
+    flex-direction: column;
+}
+
+/** Title moving gradient **/
+@-webkit-keyframes gradient {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@-moz-keyframes gradient {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@keyframes gradient {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
