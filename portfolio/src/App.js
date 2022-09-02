@@ -1,5 +1,11 @@
 import { Fragment } from 'react'
 
+import Title from './Components/Title.js'
+import AboutMe from './Components/AboutMe.js'
+import Skills from './Components/Skills.js'
+import Projects from './Components/Projects.js'
+import Contact from './Components/Contact.js'
+
 import photo from './img/foto.png'
 
 function App() {
@@ -28,8 +34,8 @@ function App() {
     }
 
     return (
-
         <Fragment>
+
             <header>
                 <nav className='menu'>
                     <a href="">Home</a>
@@ -39,7 +45,8 @@ function App() {
                     <img src={photo} alt="profile-pic"/>
                 </nav>
             </header>
-            <div className='front-page'>
+
+            <div className='page front-page'>
                 <nav className='lang-mode'>
                     <a href="">EN</a>
                     <a href="">
@@ -56,22 +63,29 @@ function App() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
             </div>
+            {/* 
             <div className='title-grad'>
                 <div className='div-title'>
                     <h2>About Me</h2>
                 </div>
                 <div className='div-grad'></div>
             </div>
-            <section className='about-me'>
-                <code>
-                    <span>{"function about(my, I) {"}</span>
-                    <span>&nbsp;{"I.am = ['creative', 'detailist'];"}</span>
-                    <span>{"I.offer = ["}</span>
-                    <span>{"'creating solutions',"}</span>
-                </code>
-                <pre></pre>
-                <div className='run'></div>
-            </section>
+             */}
+            <div className='page'>
+                <Title title='About Me'/>
+                <AboutMe />
+            </div>
+            <div className='page'>
+                <Title title='Skills'/>
+                <Skills />
+            </div>
+            <div className='page'>
+                <Title title='Projects'/>
+                <Projects />
+            </div>
+            
+            <Contact />
+            
         </Fragment>
     );
 }
