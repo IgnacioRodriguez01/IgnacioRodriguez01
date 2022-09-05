@@ -23,7 +23,9 @@
 }
 
 body {
-    font-family: 'Consolas';
+    font-family: Consolas;
+    /*font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    */
     background: var(--primary);
 }
 
@@ -54,6 +56,7 @@ header {
     height: 40px;
 }
 .page {
+    box-sizing: border-box;
     min-height: 100vh;
     width: 100vw;
     display: flex;
@@ -116,39 +119,6 @@ header {
     bottom: 75px;
 }
 
-/** Mejorar title **/
-.title-grad {
-    position: relative;
-    width: 100vw;
-    height: 70px;
-    /* overflow-x: hidden; */
-    display: flex;
-    justify-content: center;
-}
-.title-grad .div-title{
-    position: absolute;
-    top: 7px;
-    background-color: var(--secondary);
-    z-index: 10;
-    transform: rotate(-2deg);
-    height: 60px;
-    width: 101%;
-    display: flex;
-    align-items: center;
-}
-.div-title h2{
-    margin-left: 20px;
-}
-.title-grad .div-grad{
-    position: absolute;
-    top: 7px;
-    background: var(--gradient);
-    z-index: 5;
-    transform: rotate(2deg);
-    height: 60px;
-    width: 101%;
-}
-
 /** Title **/
 .title {
     background-color: black;
@@ -158,6 +128,7 @@ header {
     justify-content: space-between;
     padding: 10px 20px 10px 20px;
     font-size: 24px;
+    max-width: 750px;
     width: 90vw;
 }
 .title-directory {
@@ -173,37 +144,41 @@ header {
     margin-top: 5px; /*Adjustment*/
 }
 
-/** About Me **/
-.about-me {
-    position: relative;
+/** Cards **/
+.card {
+    display: flex;
+    flex-direction: column;
     background: var(--secondary-bg);
-    height: 50vh;
+    min-height: fit-content;
+    max-width: 750px;
     width: 90vw;
     border-radius: 0 0 7px 7px;
     box-sizing: border-box;
     padding: 15px 10px 20px 10px;
-    font-size: 18px;
+    font-size: 15px;
 }
 code {
     display: flex;
     flex-direction: column;
+    line-height: 20px;
 }
-.lavender{--code-lavender: #D59DF6;}
-.cyan{--code-cyan: #3B93FE;}
-.yellow{--code-yellow: #FFC923;}
-.gray{--code-gray: #979B9E;}
-.green{--code-green: #70F49C;}
-.orange{--code-orange: #DBB67B;}
-.red{--code-red: #E25C54;}
+.lavender{color: var(--code-lavender);}
+.cyan{color: var(--code-cyan);}
+.yellow{color: var(--code-yellow);}
+.gray{color: var(--code-gray);}
+.green{color: var(--code-green);}
+.orange{color: var(--code-orange);}
+.red{color: var(--code-red);}
 
 .run {
-    position: absolute;
+    align-self: center;
     padding: 10px;
     width: 20%;
     text-align: center;
     background-color: var(--tertiary);
     border-radius: 7px;
     bottom: 20px;
+    margin-top: 15px;
     left: calc(50% - 10% - 10px);
     font-size: 18px;
     cursor: pointer;
@@ -211,7 +186,57 @@ code {
 .run svg {
     margin-right: 5px;
 }
+.card h2 {
+    align-self: center;
+    width: fit-content;
+    position: relative;
+    bottom: calc(15px + 25px);
+    font-size: 40px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
+.about-me, .projects {
+    align-items: center;
+}
+
+/** About Me **/
+.about-me img {
+    width: 50%;
+    max-width: 275px;
+    margin-bottom: 25px;
+}
+.about-me h3 {
+    font-size: 20px;
+    color: var(--text-2);
+    margin-bottom: 25px;
+}
+.about-me p {
+    font-size: 16px;
+}
+
+/** Skills **/
+.skills h3 {
+    font-size: 20px;
+}
+.skills-container {
+    width: 100%;
+    margin: 10px 0 40px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 20px;
+    justify-items: center;
+}
+.skills-container img {
+    width: 60px;
+}
+
+/** Projects **/
+
+
+/** Contact **/
 .contact {
     box-sizing: border-box;
     width: 100vw;

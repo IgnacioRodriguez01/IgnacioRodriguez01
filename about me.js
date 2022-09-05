@@ -32,3 +32,21 @@ function skills() {
         ]
     };
 }
+
+function about(my, I) {
+    I.am = ['creative', 'detailist',
+'proactive'];
+    I.offer = [
+        'creating solutions',
+        'teamwork',
+        'quality'
+    ];
+    my.education = ['electronics', 'fullstack'];
+    my.extras = {
+        hobbies: ['arduino', 'robotics','informatics'],
+        likes: ['music','pets','friends']
+    };
+
+
+    print(me, offers, education, extras);
+};
