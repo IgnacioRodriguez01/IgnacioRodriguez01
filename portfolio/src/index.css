@@ -7,12 +7,15 @@
 
 :root {
     --gradient: linear-gradient(90deg, #EDCA85 -2.79%, #F097AD 29.91%, #A16EEA 62.6%, #A0E2FE 95.3%);
+    
     --primary: #1B2430;
     --secondary: #434669;
     --secondary-bg: #253344;
     --tertiary: #816797;
     --text: #FFFFFF;
+    --text-alter: #FFFFFF;
     --text-2: #D6D5A8;
+
     --code-lavender: #D59DF6; 
     --code-cyan: #3B93FE; 
     --code-yellow: #FFC923; 
@@ -23,10 +26,24 @@
 }
 
 body {
-    font-family: Consolas;
-    /*font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    */
+    /* font-family: Consolas; */
+    font-family: Consolas, monospace, sans-serif;
+   
     background: var(--primary);
+}
+
+body.light {
+    --primary: #F9E4D4;
+    --secondary: #FAB483;
+    --secondary-bg: #554F4B;
+    --tertiary: #D67D3E;
+    --text: #3D0E1E;
+    --text-alter: #FFFFFF;
+    --text-2: #D67D3E;
+}
+
+body.light header{
+    background: rgba(105, 77, 67, 0.7);
 }
 
 #root {
@@ -51,6 +68,7 @@ header {
 }
 .menu a{
     margin-right: 25px;
+    color: var(--text-alter);
 }
 .menu img {
     height: 40px;
@@ -137,11 +155,15 @@ header {
 }
 .title-directory p{
     margin-left: 12px;
+    color: var(--text-alter);
 }
 .title svg {
     height: 25px;
-    fill: var(--text);
+    fill: var(--text-alter);
     margin-top: 5px; /*Adjustment*/
+}
+.title > span {
+    color: var(--text-alter);
 }
 
 /** Cards **/
@@ -156,8 +178,14 @@ header {
     box-sizing: border-box;
     padding: 15px 10px 20px 10px;
     font-size: 15px;
+    margin-top: 50px;
+}
+.card-code {
+    padding: 0;
+    padding-bottom: 20px;
 }
 code {
+    padding: 15px 10px 0 10px;
     display: flex;
     flex-direction: column;
     line-height: 20px;
@@ -185,6 +213,7 @@ code {
 }
 .run svg {
     margin-right: 5px;
+    fill: var(--text);
 }
 .card h2 {
     align-self: center;
@@ -215,11 +244,13 @@ code {
 }
 .about-me p {
     font-size: 16px;
+    color: var(--text-alter);
 }
 
 /** Skills **/
 .skills h3 {
     font-size: 20px;
+    color: var(--text-alter);
 }
 .skills-container {
     width: 100%;
@@ -230,10 +261,89 @@ code {
     justify-items: center;
 }
 .skills-container img {
+    transition: 0.2s;
     width: 60px;
+}
+ /* Hover text (click for mobile) */
+.skill-img {
+    position: relative;
+}
+.skills-container img:hover, .skills-container img:active {
+    scale: 0.9;
+    transform: translateY(-10px);
+}
+.skill-img:hover::before, .skill-img:active::before {
+    transition: 0.2s;
+    display: block;
+}
+
+.skill-img::before {
+    display: none;
+    content: attr(data-hover);
+    font-size: 16px;
+    color: var(--text-alter);
+    filter: brightness(0.8);
+    text-align: center;
+    width: 150px;
+    position: absolute;
+    left: calc(50% - 75px);
+    bottom: 0;
 }
 
 /** Projects **/
+.projects {
+    background-color: transparent
+}
+
+/* Project Card */
+.project-card{
+    max-width: 500px;
+    background: var(--secondary-bg);
+    padding: 15px;
+    border-radius: 7px;
+    margin-bottom: 25px;
+}
+.project-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.project-header h3{
+    font-size: 22px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.project-header p{
+    font-size: 16px;
+    color: var(--text-2);
+}
+.project-card img{
+    margin-bottom: 15px;
+    width: 100%;
+}
+.project-desc{
+    margin-bottom: 15px;
+    color: var(--text-alter);
+}
+.project-card h4{
+    font-size: 20px;
+    color: var(--text-2);
+}
+.project-techs{
+    display: flex;
+    flex-wrap: wrap;
+}
+.tech-display{
+    background-color: white;
+    padding: 7px;
+    color: var(--secondary);
+    font-weight: bold;
+    border-radius: 7px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
 
 
 /** Contact **/
@@ -251,7 +361,8 @@ code {
     margin-bottom: 5px;
 }
 .contact p:first-of-type {
-    color: #BFBFBF;
+    color: var(--text);
+    filter: brightness(0.7);
     margin-bottom: 10px;
 }
 .contact p:last-of-type {
