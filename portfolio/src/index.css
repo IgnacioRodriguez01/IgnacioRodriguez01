@@ -280,7 +280,7 @@ code {
 .skill-img::before {
     display: none;
     content: attr(data-hover);
-    font-size: 16px;
+    font-size: 14px;
     color: var(--text-alter);
     filter: brightness(0.8);
     text-align: center;
