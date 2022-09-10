@@ -126,10 +126,6 @@ header {
     font-weight: 700;
     font-size: 3rem;
 }
-/*Gradient correction in light mode*/
-body.light .front-page h1{
-    mix-blend-mode: normal;
-}
 .front-page p {
     margin-top: 18px;
     font-size: 1.25rem;
@@ -414,6 +410,12 @@ code {
 }
 
 /** Media queries **/
+@media screen and (max-width: 500px) {
+    #blob {
+        top: 40%;
+        right: -30%;
+    }
+}
 @media screen and (min-width: 500px) {
     .front-page h1 {
         font-size: 4rem;
@@ -453,6 +455,7 @@ code {
     left: 0;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     
     z-index: -2;
     background: rgb(0, 0, 0);
@@ -478,6 +481,22 @@ code {
     z-index: -3;
     background: var(--gradient);
 }
+/** Light Mode variation **/
+body.light .front-page h1{
+    mix-blend-mode: normal;
+}
+body.light .front-page-color {
+    background: var(--primary);
+    mix-blend-mode: multiply;
+}
+body.light .front-page-mask-blob{
+    background: rgb(255, 255, 255);
+    mix-blend-mode: screen;
+}
+body.light #blob{
+    fill: rgb(0, 0, 0);
+}
+
 
 @keyframes blobMoveRot{
     0% {
