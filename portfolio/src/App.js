@@ -94,6 +94,11 @@ function App() {
                 <svg xmlns="http://www.w3.org/2000/svg" className='chevron' fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
+                
+                <div className='front-page-mask'></div>
+                <svg id='blob' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M43.8,-51.3C56,-42,64.5,-27.4,69.3,-10.7C74,6,75,25,66.8,38C58.6,51.1,41.2,58.3,23.9,63.9C6.5,69.4,-10.8,73.4,-24,67.8C-37.2,62.2,-46.2,47,-57.3,31.3C-68.5,15.7,-81.8,-0.6,-79.3,-13.9C-76.9,-27.3,-58.8,-37.9,-42.9,-46.5C-27.1,-55.1,-13.5,-61.9,1.1,-63.2C15.8,-64.6,31.6,-60.5,43.8,-51.3Z" transform="translate(100 100)" />
+                </svg>
             </div>
             {/* 
             <div className='title-grad'>

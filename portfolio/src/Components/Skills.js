@@ -1,4 +1,4 @@
-import Perfil from '../img/foto.png'
+import DjangoImg from '../img/django.svg'
 
 export default function Skills() {
     return (
@@ -33,6 +33,10 @@ export default function Skills() {
                 <div className='skill-img' data-hover="NodeJS">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="nodejs"/>
                 </div>
+                <div className='skill-img' data-hover="Django">
+                    <img src={DjangoImg} alt="django"/>
+                </div>
+          
             </div>
             <h3>Databases</h3>
             <div className="skills-container">
