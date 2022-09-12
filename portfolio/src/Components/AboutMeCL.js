@@ -1,7 +1,27 @@
 import { Fragment } from 'react'
+import { useSpring, useSpringRef, animated, config } from 'react-spring';
+
 import Title from './Title.js'
 
 export default function AboutMeCL({setPageLock, next}) {
+    
+    const runSpringRef = useSpringRef();
+    const runSpring = useSpring({
+        loop: {
+            reverse: true
+        },
+        from: {transform: "scale(1)"},
+        to: {transform: "scale(1.1)"},
+        delay: 5000,
+        config: {
+            frequency: 1.5,
+            mass: 10,
+            tension: 150,
+            friction: 10,
+            damping: 0
+        }
+    })
+
     return(
         <section className='card card-code'>
             <Title title='About Me'/>
@@ -26,12 +46,12 @@ export default function AboutMeCL({setPageLock, next}) {
                     <span className="gray"><span className="yellow">{"}"}</span>;</span>
                 </code>
             </pre>
-            <div className='run' onClick={() => setPageLock(next)}>
+            <animated.div style={runSpring} className='run' onClick={() => setPageLock(next)}>
                 <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.738753 0.114911L9.82807 5.1532L0.920123 10.5056L0.738753 0.114911Z"/>
                 </svg>
                 Run
-            </div>
+            </animated.div>
         </section>
     )
 }

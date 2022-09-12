@@ -68,9 +68,9 @@ function App() {
     }
 
     /* Springs */
-    const titleRef = useSpringRef();
+    const titleSpringRef = useSpringRef();
     const titleSpring = useSpring({
-        ref: titleRef,
+        ref: titleSpringRef,
         from: { transform: "translateY(-80px)", opacity: 0 },
         to: { transform: "translateY(0px)", opacity: 1 },
         delay: 500,
@@ -80,16 +80,16 @@ function App() {
         },
     });
 
-    const revealRef = useSpringRef();
+    const revealSpringRef = useSpringRef();
     const revealSpring = useSpring({ 
-        ref: revealRef,
+        ref: revealSpringRef,
         from: {opacity: 0},
         to: {opacity: 1},
     })
 
-    const revealSlowRef = useSpringRef();
+    const revealSlowSpringRef = useSpringRef();
     const revealSlowSpring = useSpring({ 
-        ref: revealSlowRef,
+        ref: revealSlowSpringRef,
         from: {opacity: 0},
         to: {opacity: 1},
         config: {
@@ -97,9 +97,9 @@ function App() {
         }
     })
 
-    const arrowRef = useSpringRef();
+    const arrowSpringRef = useSpringRef();
     const arrowSpring = useSpring({
-        ref: arrowRef,
+        ref: arrowSpringRef,
         loop: {
              reverse: true
         },
@@ -112,9 +112,9 @@ function App() {
             damping: 1
         },
     });
-
-    useChain([titleRef, revealRef, revealSlowRef, arrowRef])
-
+    
+    /* Front page chain */
+    useChain([titleSpringRef, revealSpringRef, revealSlowSpringRef, arrowSpringRef])
 
     return (
         <Fragment>

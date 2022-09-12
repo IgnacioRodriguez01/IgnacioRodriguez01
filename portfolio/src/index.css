@@ -243,7 +243,7 @@ code {
 
 /** About Me **/
 .about-me img {
-    width: 50%;
+    width: 100%;
     max-width: 275px;
     margin-bottom: 25px;
 }
