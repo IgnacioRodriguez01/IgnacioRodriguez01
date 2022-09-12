@@ -1,6 +1,6 @@
 import { Fragment, useRef, useEffect, useState } from 'react'
+import { useSpring, useSpringRef, useChain, animated } from "react-spring";
 
-import Title from './Components/Title.js'
 import AboutMeCL from './Components/AboutMeCL.js'
 import AboutMe from './Components/AboutMe.js'
 import SkillsCL from './Components/SkillsCL.js'
@@ -18,6 +18,7 @@ function App() {
     const pages = [aboutPage, skillsPage, projectsPage, 'free'];
     const [pageLock, setPageLock] = useState(null);
 
+    /* Scroll lock */
     useEffect(() => {
         window.scroll(0,0)
         setPageLock(aboutPage)
@@ -60,10 +61,60 @@ function App() {
         }
     }
 
+    /* Dark/Light */
     function toggleDark() {
         const body = document.querySelector('body');
         body.classList.toggle('light');
     }
+
+    /* Springs */
+    const titleRef = useSpringRef();
+    const titleSpring = useSpring({
+        ref: titleRef,
+        from: { transform: "translateY(-80px)", opacity: 0 },
+        to: { transform: "translateY(0px)", opacity: 1 },
+        delay: 500,
+        config: {
+            friction: 40,
+            clamp: true
+        },
+    });
+
+    const revealRef = useSpringRef();
+    const revealSpring = useSpring({ 
+        ref: revealRef,
+        from: {opacity: 0},
+        to: {opacity: 1},
+    })
+
+    const revealSlowRef = useSpringRef();
+    const revealSlowSpring = useSpring({ 
+        ref: revealSlowRef,
+        from: {opacity: 0},
+        to: {opacity: 1},
+        config: {
+            friction: 150,
+        }
+    })
+
+    const arrowRef = useSpringRef();
+    const arrowSpring = useSpring({
+        ref: arrowRef,
+        loop: {
+             reverse: true
+        },
+        from: { transform: "translateY(-20px)"},
+        to: { transform: "translateY(0px)"},
+        delay: 200,
+        config: {
+            clamp: true,
+            frequency: 0.8,
+            damping: 1
+        },
+    });
+
+    useChain([titleRef, revealRef, revealSlowRef, arrowRef])
+
 
     return (
         <Fragment>
@@ -80,9 +131,9 @@ function App() {
 
             <div className='front-page-gradient'></div>
             <div className='front-page-mask-blob'>
-                <svg id='blob' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <animated.svg style={revealSlowSpring} id='blob' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path d="M43.8,-51.3C56,-42,64.5,-27.4,69.3,-10.7C74,6,75,25,66.8,38C58.6,51.1,41.2,58.3,23.9,63.9C6.5,69.4,-10.8,73.4,-24,67.8C-37.2,62.2,-46.2,47,-57.3,31.3C-68.5,15.7,-81.8,-0.6,-79.3,-13.9C-76.9,-27.3,-58.8,-37.9,-42.9,-46.5C-27.1,-55.1,-13.5,-61.9,1.1,-63.2C15.8,-64.6,31.6,-60.5,43.8,-51.3Z" transform="translate(100 100)" />
-                </svg>
+                </animated.svg>
             </div>
             <div className='front-page-color'></div>
             
@@ -96,12 +147,14 @@ function App() {
                     </a>
                 </nav>
                 <div className='wrapper'>
-                    <h1>Hi, I'm Ignacio Rodriguez</h1>
-                    <p>Web developer based in Buenos Aires, Argentina.</p>
+                    <animated.h1 style={titleSpring}>Hi, I'm Ignacio Rodriguez</animated.h1>
+                    <animated.p style={revealSpring}>Web developer based in Buenos Aires, Argentina.</animated.p>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" className='chevron' fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+                <animated.div className="chevron-cont" style={revealSlowSpring}>
+                    <animated.svg style={arrowSpring} className='chevron' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </animated.svg>
+                </animated.div>
                 
 
             </div>
