@@ -63,9 +63,24 @@ header {
 .menu a{
     margin-right: 25px;
     color: var(--text-alter);
+    transition: 0.1s ease;
 }
-.menu img {
-    height: 40px;
+.menu a:not(.menu-logo){
+    padding: 10px 0 10px 0;
+}
+.menu a:hover {
+    filter: brightness(0.7);
+}
+.menu-logo {
+    background-color: #1b2430;
+    border-radius: 25%;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 35px;
+    padding: 5px;
+}
+.menu-logo img {
+    height: 100%;
 }
 .page {
     box-sizing: border-box;
@@ -96,6 +111,11 @@ header {
 }
 .lang-mode span {
     color: var(--text-2);
+    cursor: pointer;
+    transition: 0.1s ease;
+}
+.lang-mode span:hover {
+    filter: brightness(0.7);
 }
 .lang-mode svg{
     height: 1.1rem;

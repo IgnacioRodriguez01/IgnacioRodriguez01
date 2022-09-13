@@ -1,6 +1,6 @@
 import { useSpring, useTrail, animated } from 'react-spring'
 
-import Perfil from '../img/foto.png'
+import Perfil from '../img/profile.png'
 
 export default function AboutMe() {
     const titleSpring = useSpring({

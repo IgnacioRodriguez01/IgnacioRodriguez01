@@ -9,7 +9,7 @@ import ProjectsCL from './Components/ProjectsCL.js'
 import Projects from './Components/Projects.js'
 import Contact from './Components/Contact.js'
 
-import photo from './img/foto.png'
+import logo from './img/logo.png'
 
 function App() {
     const aboutPage = useRef(null);
@@ -121,11 +121,13 @@ function App() {
             
             <header>
                 <nav className='menu'>
-                    <a href="#0">Home</a>
+                    <a class="menu-logo" href="#0">
+                        <img src={logo} alt="profile-pic"/>
+                    </a>
                     <a href="#1">About</a>
+                    <a href="#2">Skills</a>
                     <a href="#3">Work</a>
                     <a href="#4">Contact</a>
-                    <img src={photo} alt="profile-pic"/>
                 </nav>
             </header>
 
