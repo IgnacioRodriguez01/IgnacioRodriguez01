@@ -15,20 +15,19 @@
     --text: #FFFFFF;
     --text-alter: #FFFFFF;
     --text-2: #D6D5A8;
-
+    
     --code-lavender: #D59DF6; 
     --code-cyan: #3B93FE; 
     --code-yellow: #FFC923; 
     --code-gray: #979B9E; 
     --code-green: #70F49C; 
     --code-orange: #DBB67B; 
-    --code-red: #E25C54; 
-}
+    --code-red: #E25C54;
 
-body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
     font-family: Consolas, monospace, sans-serif;
     background: var(--primary);
-    overflow-x: hidden;
 }
 
 body.light {
@@ -43,10 +42,6 @@ body.light {
 
 body.light header{
     background: rgba(105, 77, 67, 0.7);
-}
-
-#root {
-    overflow-x: hidden;
 }
 
 header {
@@ -99,7 +94,7 @@ header {
     align-items: center;
     font-size: 1.1rem;
 }
-.lang-mode a {
+.lang-mode span {
     color: var(--text-2);
 }
 .lang-mode svg{
@@ -129,10 +124,23 @@ header {
     min-width: 270px;
     mix-blend-mode: overlay;
 }
-.chevron {
+.chevron-cont {
+    visibility: hidden;
     position: absolute;
     height: 50px;
     bottom: 75px;
+}
+.chevron {
+    border-radius: 50%;
+    padding: 7px;
+    height: 50px;
+    bottom: 75px;
+    transition: 0.1s ease;
+    stroke: var(--text);
+}
+.chevron:hover {
+    background-color: var(--secondary);
+    stroke: var(--text-alter);
 }
 
 /** Title **/
@@ -171,7 +179,7 @@ header {
     min-height: fit-content;
     max-width: 700px;
     width: 90vw;
-    border-radius: 0 0 7px 7px;
+    border-radius: 7px;
     box-sizing: border-box;
     padding: 15px 10px 20px 10px;
     font-size: 15px;
@@ -179,7 +187,9 @@ header {
 }
 .card-code {
     padding: 0;
+    border-radius: 0 0 7px 7px;
     padding-bottom: 20px;
+    position: relative;
 }
 code {
     padding: 15px 10px 0 10px;
@@ -304,6 +314,17 @@ code {
 .projects {
     margin-top: 70px;
     background-color: transparent
+}
+.projects h2{
+    top: 0;
+}
+.projects-extension {
+    height: 50px;
+    width: 100%;
+    margin-bottom: -7px;
+    margin-top: -16px;
+    border-radius: 7px 7px 0 0;
+    background: var(--secondary-bg);
 }
 
 /* Project Card */
@@ -533,5 +554,56 @@ body.light #blob{
     }
     100% {
         transform:  rotate(180deg);
+    }
+}
+
+/** Spinner **/
+.transparent {
+    transition: 0.25s ease;
+    opacity: 0;
+}
+
+.spinner {
+    position: absolute;
+    left: calc(50% - 35px);
+    bottom: 50%;
+    /* margin: 100px auto 0; */
+    width: 70px;
+    text-align: center;
+}
+  
+.spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: var(--text);
+  
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+  
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+  
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+  
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+  
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+        -webkit-transform: scale(0);
+         transform: scale(0);
+    } 40% { 
+         -webkit-transform: scale(1.0);
+        transform: scale(1.0);
     }
 }

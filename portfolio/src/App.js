@@ -90,8 +90,8 @@ function App() {
     const revealSlowSpringRef = useSpringRef();
     const revealSlowSpring = useSpring({ 
         ref: revealSlowSpringRef,
-        from: {opacity: 0},
-        to: {opacity: 1},
+        from: {visibility: 'hidden', opacity: 0},
+        to: {visibility: 'visible', opacity: 1},
         config: {
             friction: 150,
         }
@@ -103,9 +103,9 @@ function App() {
         loop: {
              reverse: true
         },
+        reset: true,
         from: { transform: "translateY(-20px)"},
         to: { transform: "translateY(0px)"},
-        delay: 200,
         config: {
             clamp: true,
             frequency: 0.8,
@@ -139,22 +139,22 @@ function App() {
             
             <div className='page front-page' id='0'>
                 <nav className='lang-mode'>
-                    <a >EN</a>
-                    <a onClick={toggleDark}>
+                    <span>EN</span>
+                    <span onClick={toggleDark}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                         </svg>
-                    </a>
+                    </span>
                 </nav>
                 <div className='wrapper'>
                     <animated.h1 style={titleSpring}>Hi, I'm Ignacio Rodriguez</animated.h1>
                     <animated.p style={revealSpring}>Web developer based in Buenos Aires, Argentina.</animated.p>
                 </div>
-                <animated.div className="chevron-cont" style={revealSlowSpring}>
+                <animated.a href='#1' className="chevron-cont" style={revealSlowSpring}>
                     <animated.svg style={arrowSpring} className='chevron' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </animated.svg>
-                </animated.div>
+                </animated.a>
                 
 
             </div>
@@ -167,18 +167,18 @@ function App() {
             </div>
              */}
             <div className='page' id='1' ref={aboutPage}>
-                {pageLock == aboutPage ? //mejorar
+                {pageLock === aboutPage ? //mejorar
                 <AboutMeCL setPageLock={setPageLock} next={skillsPage}/> :
                 <AboutMe />}
             </div>
             <div className='page' id='2' ref={skillsPage}>
-                {pageLock == skillsPage ? //mejorar
+                {pageLock === skillsPage ? //mejorar
                 <SkillsCL setPageLock={setPageLock} next={projectsPage}/> :
                 <Skills />}
                 
             </div>
             <div className='page' id='3' ref={projectsPage}>
-                {pageLock == projectsPage ? //mejorar
+                {pageLock === projectsPage ? //mejorar
                 <ProjectsCL setPageLock={setPageLock} /> :
                 <Projects />}
             </div>

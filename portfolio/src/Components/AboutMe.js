@@ -1,16 +1,12 @@
+import { useSpring, useTrail, animated } from 'react-spring'
+
 import Perfil from '../img/foto.png'
-import { useSpring, useSpringRef, useTrail, animated } from 'react-spring'
 
 export default function AboutMe() {
-    const revealTrail = useTrail(4, {
-        from: { transform: "translateY(-80px)", opacity: 0 },
+    const titleSpring = useSpring({
+        from: { transform: "translateY(-800px)", opacity: 0 },
         to: { transform: "translateY(0px)", opacity: 1 },
-        delay: 500,
-        config: {
-            frequency: 2,
-            friction: 40,
-            clamp: true
-        }
+        delay: 0,
     })
 
     const children = [
@@ -20,9 +16,20 @@ export default function AboutMe() {
         <p>I'm creative, detailist, i offer creating solutions, teamwork, quality, Im electrician technic, fullstack dev, I enjoy arduino, robotics, inforamtics, i like music, friends, and pets</p>
     ]
 
+    const revealTrail = useTrail(children.length, {
+        from: { transform: "translateY(-80px)", opacity: 0 },
+        to: { transform: "translateY(0px)", opacity: 1 },
+        delay: 750,
+        config: {
+            frequency: 0.5,
+            friction: 40,
+            clamp: true
+        }
+    })
+
     return(
         <section className='card about-me'>
-            <h2>About Me</h2>
+            <animated.h2 style={titleSpring}>About Me</animated.h2>
             {
                 revealTrail.map((styles, index) => 
                     <animated.div style={styles}>{children[index]}</animated.div>

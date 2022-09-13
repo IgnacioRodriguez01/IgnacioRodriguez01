@@ -1,11 +1,53 @@
-import { Fragment } from "react"
+import { Fragment, useState, useEffect } from 'react'
+import { useSpring, animated, config } from 'react-spring';
+
 import Title from './Title.js'
 
 export default function ProjectsCL({setPageLock}) {
+
+    const [run, setRun] = useState(false);
+    
+    useEffect(() => {
+        if(run) {
+            setTimeout(() => {
+                setPageLock()
+            }, getRandom(250, 1750));
+        }
+    }, [run, setPageLock])
+    
+    /* Give the feel of actually running code */
+    function getRandom(min, max) {
+        return Math.random() * (max - min) + min;
+    }      
+
+    const runSpring = useSpring({
+        loop: {
+            reverse: true
+        },
+        from: {transform: "scale(1)"},
+        to: {transform: "scale(1.1)"},
+        delay: 5000,
+        config: {
+            frequency: 1.5,
+            mass: 10,
+            tension: 150,
+            friction: 10,
+            damping: 0
+        }
+    })
+
     return(
         <section className='card card-code'>
             <Title title='Projects'/>
-            <pre>
+            {   
+                run &&
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div> 
+            }
+            <pre className={run && "transparent"}>
                 <code>
                     <span className="gray"><span className="lavender">function</span> <span className="cyan">about</span><span className="yellow">{"("}</span>my, I<span className="yellow">{") {"}</span></span>
                     <span className="gray"><span className="red">    I.am</span> = <span className="lavender">{"["}</span><span className="green">'creative', 'detailist',</span></span>
@@ -26,12 +68,12 @@ export default function ProjectsCL({setPageLock}) {
                     <span className="gray"><span className="yellow">{"}"}</span>;</span>
                 </code>
             </pre>
-            <div className='run' onClick={() => setPageLock(null)}>
+            <animated.div style={runSpring} className='run' onClick={() => setRun(true)}>
                 <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.738753 0.114911L9.82807 5.1532L0.920123 10.5056L0.738753 0.114911Z"/>
                 </svg>
                 Run
-            </div>
+            </animated.div>
         </section>
     )
 }
