@@ -27,6 +27,9 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
     font-family: Consolas, monospace, sans-serif;
+}
+
+body {
     background: var(--primary);
 }
 
@@ -113,13 +116,14 @@ header {
     color: var(--text-2);
     cursor: pointer;
     transition: 0.1s ease;
+    margin-left: 15px;
+    padding: 5px;
 }
 .lang-mode span:hover {
     filter: brightness(0.7);
 }
 .lang-mode svg{
     height: 1.1rem;
-    margin-left: 20px;
     fill: var(--text-2);
     margin-bottom: -3px;
 }
@@ -231,6 +235,7 @@ code {
     width: 20%;
     text-align: center;
     background-color: var(--tertiary);
+    color: var(--text-alter);
     border-radius: 7px;
     bottom: 20px;
     margin-top: 15px;
@@ -249,7 +254,7 @@ code {
 }
 .run svg {
     margin-right: 5px;
-    fill: var(--text);
+    fill: var(--text-alter);
 }
 .card h2 {
     align-self: center;
@@ -595,7 +600,7 @@ body.light #blob{
 .spinner > div {
     width: 18px;
     height: 18px;
-    background-color: var(--text);
+    background-color: var(--text-alter);
   
     border-radius: 100%;
     display: inline-block;
