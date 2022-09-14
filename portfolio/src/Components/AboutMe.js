@@ -1,8 +1,19 @@
+import { useEffect, useRef } from 'react'
 import { useSpring, useTrail, animated } from 'react-spring'
 
 import Perfil from '../img/profile.png'
 
 export default function AboutMe() {
+    const titleRef = useRef(null);
+    
+    useEffect(() => {
+        console.log(titleRef.current);
+        setTimeout(() => {
+            const titleRect = titleRef.current.getBoundingClientRect()
+            window.scrollTo(0, titleRect.top + window.scrollY - 80)
+        }, 750);
+    }, [])
+
     const titleSpring = useSpring({
         from: { transform: "translateY(-800px)", opacity: 0 },
         to: { transform: "translateY(0px)", opacity: 1 },
@@ -29,7 +40,7 @@ export default function AboutMe() {
 
     return(
         <section className='card about-me'>
-            <animated.h2 style={titleSpring}>About Me</animated.h2>
+            <animated.h2 style={titleSpring} ref={titleRef} >About Me</animated.h2>
             {
                 revealTrail.map((styles, index) => 
                     <animated.div key={index} style={styles}>{children[index]}</animated.div>

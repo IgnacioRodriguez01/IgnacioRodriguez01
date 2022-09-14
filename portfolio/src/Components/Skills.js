@@ -1,15 +1,30 @@
-import { Fragment } from 'react'
+import { useEffect, useRef } from 'react'
 import { useSpring, useTrail, animated } from 'react-spring'
 
 import DjangoImg from '../img/django.svg'
+import GithubImg from '../img/github-bg.svg'
+//import GitImg from '../img/django.svg'
+import TrelloImg from '../img/trello-bg.svg'
+import PsImg from '../img/photoshop-plain.svg'
+import npmImg from '../img/npm-bg.svg'
 
 export default function Skills() {
+    const titleRef = useRef(null);
+    
+    useEffect(() => {
+        console.log(titleRef.current);
+        setTimeout(() => {
+            const titleRect = titleRef.current.getBoundingClientRect()
+            window.scrollTo(0, titleRect.top + window.scrollY - 80)
+        }, 750);
+    }, [])
+    
     const titleSpring = useSpring({
-        from: { transform: "translateY(-800px)", opacity: 0 },
+        from: { transform: "translateY(-80px)", opacity: 0 },
         to: { transform: "translateY(0px)", opacity: 1 },
         delay: 0,
     })
-
+    
     const children = [
         <h3>Frontend</h3>,
         <div className="skills-container">
@@ -25,7 +40,7 @@ export default function Skills() {
             <div className='skill-img' data-hover="TailwindCSS">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="tailwindcss"/>
             </div>
-            <div className='skill-img' data-hover="JavaScript">
+            <div className='skill-img undersize' data-hover="JavaScript">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript"/>
             </div>
             <div className='skill-img' data-hover="React">
@@ -56,11 +71,11 @@ export default function Skills() {
         </div>,
         <h3>Tools</h3>,
         <div className="skills-container">
-            <div className='skill-img' data-hover="Figma">
+            <div className='skill-img undersize' data-hover="Figma">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma"/>
             </div>
-            <div className='skill-img' data-hover="Photoshop">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="photoshop"/>
+            <div className='skill-img undersize' data-hover="Photoshop">
+                <img src={PsImg} alt="photoshop"/>
             </div>
             <div className='skill-img' data-hover="VSCode">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode"/>
@@ -74,8 +89,8 @@ export default function Skills() {
             <div className='skill-img' data-hover="npm">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="npm"/>
             </div>
-            <div className='skill-img' data-hover="Trello">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" alt="trello"/>
+            <div className='skill-img undersize' data-hover="Trello">
+                <img src={TrelloImg} alt="trello"/>
             </div>
         </div>
     ]
@@ -93,7 +108,7 @@ export default function Skills() {
 
     return (
         <section className="card skills">
-            <animated.h2 style={titleSpring}>Skills</animated.h2>
+            <animated.h2 style={titleSpring} ref={titleRef}>Skills</animated.h2>
             {
                 revealTrail.map((styles, index) => 
                     <animated.div key={index} style={styles}>{children[index]}</animated.div>

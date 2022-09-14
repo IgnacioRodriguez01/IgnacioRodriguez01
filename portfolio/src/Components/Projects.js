@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { useSpring, useTrail, animated } from 'react-spring'
 
 import ProjectCard from './ProjectCard'
@@ -5,8 +6,18 @@ import ProjectCard from './ProjectCard'
 import ProjectImg from '../img/homebanking.jpg'
 
 export default function Projects() {
+    const titleRef = useRef(null);
+    
+    useEffect(() => {
+        console.log(titleRef.current);
+        setTimeout(() => {
+            const titleRect = titleRef.current.getBoundingClientRect()
+            window.scrollTo(0, titleRect.top + window.scrollY - 80)
+        }, 750);
+    }, [])
+
     const titleSpring = useSpring({
-        from: { transform: "translateY(-800px)", opacity: 0 },
+        from: { transform: "translateY(-80px)", opacity: 0 },
         to: { transform: "translateY(0px)", opacity: 1 },
         delay: 0,
     })
@@ -41,15 +52,13 @@ export default function Projects() {
 
     return(
         <section className='card projects'>
-            <animated.h2 style={titleSpring}>Projects</animated.h2>
-            <div>
-                <div className='projects-extension'></div>
-                {
-                    revealTrail.map((styles, index) => 
-                        <animated.div key={index} style={styles}>{children[index]}</animated.div>
-                    )
-                }
-            </div>
+            <animated.h2 style={titleSpring} ref={titleRef} >Projects</animated.h2>
+            {
+                revealTrail.map((styles, index) => 
+                    <animated.div key={index} style={styles}>{children[index]}</animated.div>
+                )
+            }
+
         </section>
     )
 }
