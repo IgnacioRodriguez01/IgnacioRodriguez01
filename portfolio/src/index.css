@@ -85,6 +85,12 @@ header {
 .menu-logo img {
     height: 100%;
 }
+.disabled-menu {
+    pointer-events: none;
+    color: currentColor;
+    opacity: 0.5;
+}
+
 .page {
     box-sizing: border-box;
     min-height: 100vh;

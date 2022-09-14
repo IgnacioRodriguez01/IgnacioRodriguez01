@@ -15,46 +15,38 @@ function App() {
     const aboutPage = useRef(null);
     const skillsPage = useRef(null);
     const projectsPage = useRef(null);
+    const contactSection = useRef(null);
 
+    /*
+        The pages array has the info of the state of the cards.
+        In its [0] element will have the page that is in its code form,
+        and from its [1] element to the end will be the hidden pages.
+    */
     const initialPages = { 
-        pages: [aboutPage, skillsPage, projectsPage] 
+        pages: [aboutPage, skillsPage, projectsPage, contactSection] 
     };
     function pagesReducer(state, action) {
         if(action.type === 'next') {
-            console.log("call")
             return  { pages: state.pages.slice(1) }
         }
     }
     const [state, dispatch] = useReducer(pagesReducer, initialPages);
     const pages = state.pages
 
-    /* Scroll lock at start*/
+    /* Scroll to the top at start */
     useEffect(() => {
         window.scroll(0,0)
     }, [])
-
-    useEffect(() => {
-        const pageLock = pages.length >= 1 ? pages[0] : null;
-        
-        if(pageLock){
-            window.onscroll = () => scrollLock(pageLock);
-            return;
-        }
-        window.onscroll = undefined;
-    }, [pages])
-
-    function scrollLock(elemRef) {
-        const elemRect = elemRef.current.getBoundingClientRect()
-
-        if(elemRect.top <= 0) {
-            window.scrollTo(0, elemRect.top + window.scrollY)
-        }
-    }
 
     /* Dark/Light */
     function toggleDark() {
         const body = document.querySelector('body');
         body.classList.toggle('light');
+    }
+
+    /* Helper for rendering pages */
+    function notVisible(page) {
+        return !pages.slice(1).some((item) => item === page);
     }
 
     /* Springs */
@@ -114,10 +106,10 @@ function App() {
                     <a className="menu-logo" href="#0">
                         <img src={logo} alt="profile-pic"/>
                     </a>
-                    <a href="#1">About</a>
-                    <a href="#2">Skills</a>
-                    <a href="#3">Work</a>
-                    <a href="#4">Contact</a>
+                    <a href="#1" className={notVisible(aboutPage) ? '' : 'disabled-menu'}>About</a>
+                    <a href="#2" className={notVisible(skillsPage) ? '' : 'disabled-menu'}>Skills</a>
+                    <a href="#3" className={notVisible(projectsPage) ? '' : 'disabled-menu'}>Work</a>
+                    <a href="#4" className={notVisible(contactSection) ? '' : 'disabled-menu'}>Contact</a>
                 </nav>
             </header>
 
@@ -147,35 +139,44 @@ function App() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </animated.svg>
                 </animated.a>
-                
 
             </div>
-            {/* 
-            <div className='title-grad'>
-                <div className='div-title'>
-                    <h2>About Me</h2>
+
+            {
+                notVisible(aboutPage) && //visibility
+                <div className='page' id='1' ref={aboutPage}>
+                    {
+                        pages[0] === aboutPage ? //code/run
+                        <AboutMeCL pages={pages} dispatch={dispatch}/> :
+                        <AboutMe />
+                    }
                 </div>
-                <div className='div-grad'></div>
-            </div>
-             */}
-            <div className='page' id='1' ref={aboutPage}>
-                {pages.some((page) => page === aboutPage) ? //mejorar
-                <AboutMeCL pages={pages} dispatch={dispatch}/> :
-                <AboutMe />}
-            </div>
-            <div className='page' id='2' ref={skillsPage}>
-                {pages.some((page) => page === skillsPage) ? //mejorar
-                <SkillsCL pages={pages} dispatch={dispatch}/> :
-                <Skills />}
-                
-            </div>
-            <div className='page' id='3' ref={projectsPage}>
-                {pages.some((page) => page === projectsPage) ? //mejorar
-                <ProjectsCL pages={pages} dispatch={dispatch}/> :
-                <Projects />}
-            </div>
-            
-            <Contact />
+            }
+            {
+                notVisible(skillsPage) && //visibility
+                <div className='page' id='2' ref={skillsPage}>
+                    {
+                        pages[0] === skillsPage ? //code/run
+                        <SkillsCL pages={pages} dispatch={dispatch}/> :
+                        <Skills />
+                    }
+                    
+                </div>
+            }
+            {
+                notVisible(projectsPage) && //visibility
+                <div className='page' id='3' ref={projectsPage}>
+                    {
+                        pages[0] === projectsPage ? //code/run (check for undefined)
+                        <ProjectsCL pages={pages} dispatch={dispatch}/> :
+                        <Projects />
+                    }
+                </div>
+            }
+            {
+                notVisible(contactSection) && //visibility
+                <Contact ref={contactSection}/>
+            }
             
         </Fragment>
     );
