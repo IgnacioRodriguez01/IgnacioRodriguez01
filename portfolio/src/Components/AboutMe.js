@@ -32,7 +32,7 @@ export default function AboutMe() {
             <animated.h2 style={titleSpring}>About Me</animated.h2>
             {
                 revealTrail.map((styles, index) => 
-                    <animated.div style={styles}>{children[index]}</animated.div>
+                    <animated.div key={index} style={styles}>{children[index]}</animated.div>
                 )
             }
         </section>

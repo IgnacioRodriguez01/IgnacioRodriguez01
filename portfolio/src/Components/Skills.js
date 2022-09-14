@@ -96,7 +96,7 @@ export default function Skills() {
             <animated.h2 style={titleSpring}>Skills</animated.h2>
             {
                 revealTrail.map((styles, index) => 
-                    <animated.div style={styles}>{children[index]}</animated.div>
+                    <animated.div key={index} style={styles}>{children[index]}</animated.div>
                 )
             }
         </section>

@@ -46,7 +46,7 @@ export default function Projects() {
                 <div className='projects-extension'></div>
                 {
                     revealTrail.map((styles, index) => 
-                        <animated.div style={styles}>{children[index]}</animated.div>
+                        <animated.div key={index} style={styles}>{children[index]}</animated.div>
                     )
                 }
             </div>

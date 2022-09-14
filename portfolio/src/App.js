@@ -1,4 +1,4 @@
-import { Fragment, useRef, useEffect, useState } from 'react'
+import { Fragment, useRef, useEffect, useState, useReducer } from 'react'
 import { useSpring, useSpringRef, useChain, animated } from "react-spring";
 
 import AboutMeCL from './Components/AboutMeCL.js'
@@ -15,43 +15,33 @@ function App() {
     const aboutPage = useRef(null);
     const skillsPage = useRef(null);
     const projectsPage = useRef(null);
-    const pages = [aboutPage, skillsPage, projectsPage, 'free'];
-    const [pageLock, setPageLock] = useState(null);
 
-    /* Scroll lock */
+    const initialPages = { 
+        pages: [aboutPage, skillsPage, projectsPage] 
+    };
+    function pagesReducer(state, action) {
+        if(action.type === 'next') {
+            console.log("call")
+            return  { pages: state.pages.slice(1) }
+        }
+    }
+    const [state, dispatch] = useReducer(pagesReducer, initialPages);
+    const pages = state.pages
+
+    /* Scroll lock at start*/
     useEffect(() => {
         window.scroll(0,0)
-        setPageLock(aboutPage)
-        /*
-        setTimeout(() => {
-            const elemRect = projectsPage.current.getBoundingClientRect()
-            window.scroll({
-                top: elemRect.top + window.scrollY,
-                left: 0,
-                behavior: 'smooth'
-            })
-            setTimeout(() => {
-                window.scroll({
-                    top: 0,
-                    left: 0,
-                    behavior: 'smooth'
-                })
-                setTimeout(() => {
-                    setPageLock(aboutPage)
-                }, 1000);
-            }, 2000);
-        }, 2000);
-        */
     }, [])
 
     useEffect(() => {
+        const pageLock = pages.length >= 1 ? pages[0] : null;
+        
         if(pageLock){
             window.onscroll = () => scrollLock(pageLock);
             return;
         }
         window.onscroll = undefined;
-
-    }, [pageLock])
+    }, [pages])
 
     function scrollLock(elemRef) {
         const elemRect = elemRef.current.getBoundingClientRect()
@@ -121,7 +111,7 @@ function App() {
             
             <header>
                 <nav className='menu'>
-                    <a class="menu-logo" href="#0">
+                    <a className="menu-logo" href="#0">
                         <img src={logo} alt="profile-pic"/>
                     </a>
                     <a href="#1">About</a>
@@ -169,19 +159,19 @@ function App() {
             </div>
              */}
             <div className='page' id='1' ref={aboutPage}>
-                {pageLock === aboutPage ? //mejorar
-                <AboutMeCL setPageLock={setPageLock} next={skillsPage}/> :
+                {pages.some((page) => page === aboutPage) ? //mejorar
+                <AboutMeCL pages={pages} dispatch={dispatch}/> :
                 <AboutMe />}
             </div>
             <div className='page' id='2' ref={skillsPage}>
-                {pageLock === skillsPage ? //mejorar
-                <SkillsCL setPageLock={setPageLock} next={projectsPage}/> :
+                {pages.some((page) => page === skillsPage) ? //mejorar
+                <SkillsCL pages={pages} dispatch={dispatch}/> :
                 <Skills />}
                 
             </div>
             <div className='page' id='3' ref={projectsPage}>
-                {pageLock === projectsPage ? //mejorar
-                <ProjectsCL setPageLock={setPageLock} /> :
+                {pages.some((page) => page === projectsPage) ? //mejorar
+                <ProjectsCL pages={pages} dispatch={dispatch}/> :
                 <Projects />}
             </div>
             

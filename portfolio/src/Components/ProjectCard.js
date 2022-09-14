@@ -1,6 +1,6 @@
 
 
-export default function Projects({title, type, img, description, techs}) {
+export default function ProjectCard({title, type, img, description, techs}) {
     
     return(
         <section className='project-card'>

@@ -3,17 +3,18 @@ import { useSpring, animated, config } from 'react-spring';
 
 import Title from './Title.js'
 
-export default function AboutMeCL({setPageLock, next}) {
+export default function AboutMeCL({pages, dispatch}) {
     
     const [run, setRun] = useState(false);
     
+    /* Call the reducer and its effects in App */
     useEffect(() => {
         if(run) {
             setTimeout(() => {
-                setPageLock(next)
+                dispatch({type: 'next'})
             }, getRandom(250, 1750));
         }
-    }, [run, setPageLock, next])
+    }, [run])
     
     /* Give the feel of actually running code */
     function getRandom(min, max) {
@@ -41,13 +42,13 @@ export default function AboutMeCL({setPageLock, next}) {
             <Title title='About Me'/>
             {   
                 run &&
-                <div class="spinner">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
+                <div className="spinner">
+                    <div className="bounce1"></div>
+                    <div className="bounce2"></div>
+                    <div className="bounce3"></div>
                 </div> 
             }
-            <pre className={run && "transparent"}>
+            <pre className={run ? "transparent" : ""}>
                 <code>
                     <span className="gray"><span className="lavender">function</span> <span className="cyan">about</span><span className="yellow">{"("}</span>my, I<span className="yellow">{") {"}</span></span>
                     <span className="gray"><span className="red">    I.am</span> = <span className="lavender">{"["}</span><span className="green">'creative', 'detailist',</span></span>
