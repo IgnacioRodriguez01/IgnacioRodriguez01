@@ -86,9 +86,18 @@ header {
     height: 100%;
 }
 .disabled-menu {
-    pointer-events: none;
+    /* pointer-events: none; */
     color: currentColor;
-    opacity: 0.5;
+    filter: brightness(0.7);
+}
+.disabled-menu:hover::after {
+    content: 'Keep scrolling!';
+    border-radius: 5px;
+    padding: 2px;
+    position: absolute;
+    display: block;
+    width: max-content;
+    background: rgb(0, 0, 0);
 }
 
 .page {

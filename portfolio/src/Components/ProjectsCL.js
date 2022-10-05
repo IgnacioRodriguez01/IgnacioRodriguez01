@@ -3,9 +3,22 @@ import { useSpring, animated, config } from 'react-spring';
 
 import Title from './Title.js'
 
-export default function ProjectsCL({pages, dispatch}) {
+export default function ProjectsCL({pages, dispatch, lang}) {
     
     const [run, setRun] = useState(false);
+    
+    /* ProjectsCL lang */
+    const textProjectsCLES = {
+        title:"Proyectos",
+        run:"Ejecutar"
+    }
+    const textProjectsCLEN = {
+        title:"Projects",
+        run:"Run"
+    }
+
+    let textLang = lang === "EN" ? textProjectsCLEN : textProjectsCLES;
+
     
     useEffect(() => {
         if(run) {
@@ -38,7 +51,7 @@ export default function ProjectsCL({pages, dispatch}) {
 
     return(
         <section className='card card-code'>
-            <Title title='Projects'/>
+            <Title title={textLang.title}/>
             {   
                 run &&
                 <div className="spinner">
@@ -49,22 +62,17 @@ export default function ProjectsCL({pages, dispatch}) {
             }
             <pre className={run ? "transparent" : ""}>
                 <code>
-                    <span className="gray"><span className="lavender">function</span> <span className="cyan">about</span><span className="yellow">{"("}</span>my, I<span className="yellow">{") {"}</span></span>
-                    <span className="gray"><span className="red">    I.am</span> = <span className="lavender">{"["}</span><span className="green">'creative', 'detailist',</span></span>
-                    <span className="gray">    <span className="green">'proactive'</span><span className="lavender">{"]"}</span>;</span>
-                    <span className="gray">    <span className="red">I.offer</span> = <span className="lavender">{"["}</span></span>
-                    <span className="green">        'creating solutions',</span>
-                    <span className="green">        'teamwork',</span> 
-                    <span className="green">        'quality'</span> 
-                    <span className="gray">    <span className="lavender">{"]"}</span>;</span> 
-                    <span className="gray"><span className="red">    my.education</span> = <span className="lavender">{"["}</span><span className="green">'electronics',</span></span> 
-                    <span className="gray">    <span className="green">'fullstack'</span><span className="lavender">{"]"}</span>;</span>
-                    <span className="gray"><span className="red">    my.extras</span> = <span className="lavender">{"{"}</span></span> 
-                    <span className="gray">        hobbies: <span className="cyan">{"["}</span><span className="green">'arduino',</span></span>
-                    <span className="gray">        <span className="green">'robotics','informatics'</span><span className="cyan">{"]"}</span>,</span>
-                    <span className="gray">        likes: <span className="cyan">{"["}<span className="green">'music','pets','friends'</span>{"]"}</span></span>
-                    <span className="gray">    <span className="lavender">{"}"}</span>;</span>
-                    <span className="gray">    <span className="cyan">print</span><span className="lavender">{"("}<span className="gray">me, offers, education, extras</span>{")"}</span>;</span>
+                    <span className="gray"><span className="lavender">function</span> <span className="cyan">projects</span><span className="yellow">{"("}</span>ideas<span className="yellow">{") {"}</span></span>
+                    <span className="gray">    <span className="lavender">const</span> <span className="yellow">code</span>, <span className="yellow">passion</span>, <span className="yellow">details</span>;</span>
+                    <span className="gray">    <span className="red">ideas</span>.<span className="cyan">forEach<span className="lavender">{"("}<span className="gray">idea</span> {"=>"} </span>{"{"}</span></span>
+                    <span className="gray">        <span className="lavender">let</span> project =</span>
+                    <span className="gray">        idea</span>
+                    <span className="gray">        + code</span>
+                    <span className="gray">        + passion</span>
+                    <span className="gray">        + details;</span>
+                    <span className="gray">        </span>
+                    <span className="gray">        <span className="lavender">return</span> project;</span>
+                    <span className="gray">    <span className="cyan">{"}"}</span><span className="lavender">{")"}</span>;</span>
                     <span className="gray"><span className="yellow">{"}"}</span>;</span>
                 </code>
             </pre>
@@ -72,7 +80,7 @@ export default function ProjectsCL({pages, dispatch}) {
                 <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.738753 0.114911L9.82807 5.1532L0.920123 10.5056L0.738753 0.114911Z"/>
                 </svg>
-                Run
+                {textLang.run}
             </animated.div>
         </section>
     )

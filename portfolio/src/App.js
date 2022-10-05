@@ -1,4 +1,4 @@
-import { Fragment, useRef, useEffect, useState, useReducer } from 'react'
+import { Fragment, useState, useRef, useEffect, useReducer } from 'react'
 import { useSpring, useSpringRef, useChain, animated } from "react-spring";
 
 import AboutMeCL from './Components/AboutMeCL.js'
@@ -18,7 +18,7 @@ function App() {
     const contactSection = useRef(null);
 
     /*
-        The pages array has the info of the state of the cards.
+        The pages array has the info of the card's state.
         In its [0] element will have the page that is in its code form,
         and from its [1] element to the end will be the hidden pages.
     */
@@ -33,10 +33,54 @@ function App() {
     const [state, dispatch] = useReducer(pagesReducer, initialPages);
     const pages = state.pages
 
-    /* Scroll to the top at start */
+    /* Scroll to the top at start and retrieve or initialize lang*/
     useEffect(() => {
         window.scroll(0,0)
+
+        if (localStorage.getItem('lang')) {
+            setLang(localStorage.getItem('lang'));
+        } else {
+            localStorage.setItem('lang', lang);
+        }
     }, [])
+
+    /* Language toggle handling */
+    const languages = ["EN", "ES"]
+    const [lang, setLang] = useState(languages[0]);
+
+    function toggleLang() {
+        lang === languages[0] ? setLang(languages[1]) : setLang(languages[0]);
+        localStorage.setItem('lang', lang); //Problem
+        //window.location.reload();
+    }
+
+    useEffect(() => {
+        
+    }, [lang])
+
+    /* Main lang */
+    const textMainES = {
+        title:"Hola, Soy Ignacio Rodriguez",
+        subtitle:"Desarrolador Web de Buenos Aires, Argentina",
+        nav:{
+            about:"Acerca",
+            skills:"Habilidades",
+            proyects:"Proyectos",
+            contact:"Contacto"
+        }
+    }
+    const textMainEN = {
+        title:"Hi, I'm Ignacio Rodriguez",
+        subtitle:"Web developer based in Buenos Aires, Argentina",
+        nav:{
+            about:"About",
+            skills:"Skills",
+            proyects:"Work",
+            contact:"Contact"
+        }
+    }
+
+    let textLang = lang === "EN" ? textMainEN : textMainES;
 
     /* Dark/Light */
     function toggleDark() {
@@ -100,16 +144,16 @@ function App() {
 
     return (
         <Fragment>
-            
+
             <header>
                 <nav className='menu'>
                     <a className="menu-logo" href="#0">
                         <img src={logo} alt="profile-pic"/>
                     </a>
-                    <a href="#1" className={notVisible(aboutPage) ? '' : 'disabled-menu'}>About</a>
-                    <a href="#2" className={notVisible(skillsPage) ? '' : 'disabled-menu'}>Skills</a>
-                    <a href="#3" className={notVisible(projectsPage) ? '' : 'disabled-menu'}>Work</a>
-                    <a href="#4" className={notVisible(contactSection) ? '' : 'disabled-menu'}>Contact</a>
+                    <a href="#1" className={notVisible(aboutPage) ? '' : 'disabled-menu'}>{textLang.nav.about}</a>
+                    <a href="#2" className={notVisible(skillsPage) ? '' : 'disabled-menu'}>{textLang.nav.skills}</a>
+                    <a href="#3" className={notVisible(projectsPage) ? '' : 'disabled-menu'}>{textLang.nav.proyects}</a>
+                    <a href="#4" className={notVisible(contactSection) ? '' : 'disabled-menu'}>{textLang.nav.contact}</a>
                 </nav>
             </header>
 
@@ -122,8 +166,8 @@ function App() {
             <div className='front-page-color'></div>
             
             <div className='page front-page' id='0'>
-                <nav className='lang-mode'>
-                    <span>EN</span>
+                <nav className='lang-mode'> 
+                    <span onClick={() => toggleLang()}>{lang}</span>
                     <span onClick={toggleDark}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
@@ -131,8 +175,8 @@ function App() {
                     </span>
                 </nav>
                 <div className='wrapper'>
-                    <animated.h1 style={titleSpring}>Hi, I'm Ignacio Rodriguez</animated.h1>
-                    <animated.p style={revealSpring}>Web developer based in Buenos Aires, Argentina.</animated.p>
+                    <animated.h1 style={titleSpring}>{textLang.title}</animated.h1>
+                    <animated.p style={revealSpring}>{textLang.subtitle}</animated.p>
                 </div>
                 <animated.a href='#1' className="chevron-cont" style={revealSlowSpring}>
                     <animated.svg style={arrowSpring} className='chevron' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -147,8 +191,8 @@ function App() {
                 <div className='page' id='1' ref={aboutPage}>
                     {
                         pages[0] === aboutPage ? //code/run
-                        <AboutMeCL pages={pages} dispatch={dispatch}/> :
-                        <AboutMe />
+                        <AboutMeCL pages={pages} dispatch={dispatch} lang={lang}/> :
+                        <AboutMe lang={lang}/>
                     }
                 </div>
             }
@@ -157,8 +201,8 @@ function App() {
                 <div className='page' id='2' ref={skillsPage}>
                     {
                         pages[0] === skillsPage ? //code/run
-                        <SkillsCL pages={pages} dispatch={dispatch}/> :
-                        <Skills />
+                        <SkillsCL pages={pages} dispatch={dispatch} lang={lang}/> :
+                        <Skills lang={lang}/>
                     }
                     
                 </div>
@@ -168,8 +212,8 @@ function App() {
                 <div className='page' id='3' ref={projectsPage}>
                     {
                         pages[0] === projectsPage ? //code/run (check for undefined)
-                        <ProjectsCL pages={pages} dispatch={dispatch}/> :
-                        <Projects />
+                        <ProjectsCL pages={pages} dispatch={dispatch} lang={lang}/> :
+                        <Projects lang={lang}/>
                     }
                 </div>
             }
@@ -177,7 +221,7 @@ function App() {
                 notVisible(contactSection) && //visibility
                 <Contact ref={contactSection}/>
             }
-            
+
         </Fragment>
     );
 }

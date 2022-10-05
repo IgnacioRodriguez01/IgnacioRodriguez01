@@ -3,13 +3,25 @@ import { useSpring, useTrail, animated } from 'react-spring'
 
 import DjangoImg from '../img/django.svg'
 import GithubImg from '../img/github-bg.svg'
-//import GitImg from '../img/django.svg'
 import TrelloImg from '../img/trello-bg.svg'
 import PsImg from '../img/photoshop-plain.svg'
 import npmImg from '../img/npm-bg.svg'
 
-export default function Skills() {
+export default function Skills({lang}) {
     const titleRef = useRef(null);
+
+    const textSkillsES = {
+        title:"Habilidades",
+        db:"Bases de datos",
+        tools:"Herramientas"
+    }
+    const textSkillsEN = {
+        title:"Skills",
+        db:"Databases",
+        tools:"Tools"
+    }
+
+    let textLang = lang === "EN" ? textSkillsEN : textSkillsES;
     
     useEffect(() => {
         console.log(titleRef.current);
@@ -60,7 +72,7 @@ export default function Skills() {
             </div>
         
         </div>,
-        <h3>Databases</h3>,
+        <h3>{textLang.db}</h3>,
         <div className="skills-container">
             <div className='skill-img' data-hover="SQLite">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="sqlite"/>
@@ -69,7 +81,7 @@ export default function Skills() {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="mongodb"/>
             </div>
         </div>,
-        <h3>Tools</h3>,
+        <h3>{textLang.tools}</h3>,
         <div className="skills-container">
             <div className='skill-img undersize' data-hover="Figma">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma"/>
@@ -108,7 +120,7 @@ export default function Skills() {
 
     return (
         <section className="card skills">
-            <animated.h2 style={titleSpring} ref={titleRef}>Skills</animated.h2>
+            <animated.h2 style={titleSpring} ref={titleRef}>{textLang.title}</animated.h2>
             {
                 revealTrail.map((styles, index) => 
                     <animated.div key={index} style={styles}>{children[index]}</animated.div>

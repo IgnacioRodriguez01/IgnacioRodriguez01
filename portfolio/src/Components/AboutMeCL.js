@@ -3,10 +3,22 @@ import { useSpring, animated, config } from 'react-spring';
 
 import Title from './Title.js'
 
-export default function AboutMeCL({pages, dispatch}) {
+export default function AboutMeCL({pages, dispatch, lang}) {
     
     const [run, setRun] = useState(false);
     
+    /* AboutCL lang */
+    const textAboutCLES = {
+        title:"Acerca De Mi",
+        run:"Ejecutar"
+    }
+    const textAboutCLEN = {
+        title:"About Me",
+        run:"Run"
+    }
+
+    let textLang = lang === "EN" ? textAboutCLEN : textAboutCLES;
+
     /* Call the reducer and its effects in App */
     useEffect(() => {
         if(run) {
@@ -39,7 +51,7 @@ export default function AboutMeCL({pages, dispatch}) {
 
     return(
         <section className='card card-code'>
-            <Title title='About Me'/>
+            <Title title={textLang.title}/>
             {   
                 run &&
                 <div className="spinner">
@@ -73,7 +85,7 @@ export default function AboutMeCL({pages, dispatch}) {
                 <svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.738753 0.114911L9.82807 5.1532L0.920123 10.5056L0.738753 0.114911Z"/>
                 </svg>
-                Run
+                {textLang.run}
             </animated.div>
         </section>
     )

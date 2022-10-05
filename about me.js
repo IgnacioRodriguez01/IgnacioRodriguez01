@@ -17,7 +17,8 @@ function about(my, I) {
 function skills() {
     return {
         frontend: [
-            'html', 'css', 'bootstrap', 
+            'html', 'css',
+            'bootstrap', 
             'javascript', 'react'
         ],
         backend: [
@@ -27,26 +28,29 @@ function skills() {
             'mongodb', 'sqlite'
         ],
         tools: [
-            'figma', 'photoshop', 'vscode',
-            'git', 'github', 'npm', 'trello'
+            'figma', 'photoshop',
+            'vscode', 'git',
+            'github', 'npm',
+            'trello'
         ]
     };
 }
 
-function about(my, I) {
-    I.am = ['creative', 'detailist',
-'proactive'];
-    I.offer = [
-        'creating solutions',
-        'teamwork',
-        'quality'
-    ];
-    my.education = ['electronics', 'fullstack'];
-    my.extras = {
-        hobbies: ['arduino', 'robotics','informatics'],
-        likes: ['music','pets','friends']
-    };
+function projects(ideas) {
+    const code, passion, details;
+    ideas.forEach(idea => {
+        let project = 
+        idea 
+        + code
+        + passion
+        + details;
 
+        return project;
+    });
+};
 
-    print(me, offers, education, extras);
+function projects(ideas) {
+    ideas.map((idea) => 
+        
+    );
 };
