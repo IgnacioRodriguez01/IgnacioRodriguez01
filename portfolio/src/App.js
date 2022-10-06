@@ -60,7 +60,7 @@ function App() {
 
     /* Main lang */
     const textMainES = {
-        title:"Hola, Soy Ignacio Rodriguez",
+        title:"Hola, soy Ignacio Rodriguez",
         subtitle:"Desarrolador Web de Buenos Aires, Argentina",
         nav:{
             about:"Acerca",
@@ -219,7 +219,7 @@ function App() {
             }
             {
                 notVisible(contactSection) && //visibility
-                <Contact ref={contactSection}/>
+                <Contact ref={contactSection} lang={lang}/>
             }
 
         </Fragment>

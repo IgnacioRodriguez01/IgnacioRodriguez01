@@ -79,7 +79,7 @@ export default function Projects({lang}) {
 
     return(
         <section className='card projects'>
-            <animated.h2 style={titleSpring} ref={titleRef} >Projects</animated.h2>
+            <animated.h2 style={titleSpring} ref={titleRef} >{textLang.title}</animated.h2>
             {
                 revealTrail.map((styles, index) => 
                     <animated.div key={index} style={styles}>{children[index]}</animated.div>
