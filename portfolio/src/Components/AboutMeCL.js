@@ -9,7 +9,7 @@ export default function AboutMeCL({pages, dispatch, lang}) {
     
     /* AboutCL lang */
     const textAboutCLES = {
-        title:"Acerca De Mi",
+        title:"Sobre Mí",
         run:"Ejecutar"
     }
     const textAboutCLEN = {

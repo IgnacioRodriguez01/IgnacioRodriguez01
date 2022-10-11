@@ -63,7 +63,7 @@ function App() {
         title:"Hola, soy Ignacio Rodriguez",
         subtitle:"Desarrolador Web de Buenos Aires, Argentina",
         nav:{
-            about:"Acerca",
+            about:"Sobre Mí",
             skills:"Habilidades",
             proyects:"Proyectos",
             contact:"Contacto"

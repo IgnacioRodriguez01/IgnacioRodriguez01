@@ -52,6 +52,9 @@ export default function Skills({lang}) {
             <div className='skill-img' data-hover="TailwindCSS">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="tailwindcss"/>
             </div>
+            <div className='skill-img' data-hover="Sass">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="sass"/>
+            </div>
             <div className='skill-img undersize' data-hover="JavaScript">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript"/>
             </div>
@@ -64,9 +67,11 @@ export default function Skills({lang}) {
             <div className='skill-img' data-hover="Python">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="python"/>
             </div>
+            {/*
             <div className='skill-img' data-hover="NodeJS">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="nodejs"/>
-            </div>
+            </div> 
+            */}
             <div className='skill-img' data-hover="Django">
                 <img src={DjangoImg} alt="django"/>
             </div>
@@ -77,9 +82,11 @@ export default function Skills({lang}) {
             <div className='skill-img' data-hover="SQLite">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="sqlite"/>
             </div>
+            {/*
             <div className='skill-img' data-hover="MongoDB">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="mongodb"/>
             </div>
+            */}
         </div>,
         <h3>{textLang.tools}</h3>,
         <div className="skills-container">
