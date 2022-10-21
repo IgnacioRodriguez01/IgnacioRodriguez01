@@ -45,7 +45,7 @@ function App() {
     }, [])
 
     /* Language toggle handling */
-    const languages = ["EN", "ES"]
+    const languages = ["ES", "EN"]
     const [lang, setLang] = useState(languages[0]);
 
     function toggleLang() {
