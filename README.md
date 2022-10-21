@@ -12,7 +12,7 @@
 - Twitter: https://twitter.com/ignaciorod01
 - Mail: ignacioandresrodriguez01@gmail.com
 - LinkedIn: https://www.linkedin.com/in/ignacio-andres-rodr%C3%ADguez/
-- Portfolio: _Coming soon..._
+- Portfolio: https://ignaciorodriguez.vercel.app/
 
 <!---
 IgnacioRodriguez01/IgnacioRodriguez01 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
