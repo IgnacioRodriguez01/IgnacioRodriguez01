@@ -75,9 +75,11 @@ export default function AboutMeCL({pages, dispatch, lang}) {
                     <span className="gray"><span className="red">    my.extras</span> = <span className="lavender">{"{"}</span></span> 
                     <span className="gray">        hobbies: <span className="cyan">{"["}</span><span className="green">'arduino',</span></span>
                     <span className="gray">        <span className="green">'robotics','informatics'</span><span className="cyan">{"]"}</span>,</span>
-                    <span className="gray">        likes: <span className="cyan">{"["}<span className="green">'music','pets','friends'</span>{"]"}</span></span>
+                    <span className="gray">        likes: <span className="cyan">{"["}<span className="green">'music','pets',</span></span></span>
+                    <span className="gray">        <span className="cyan"><span className="green">'friends'</span>{"]"}</span></span>
                     <span className="gray">    <span className="lavender">{"}"}</span>;</span>
-                    <span className="gray">    <span className="cyan">print</span><span className="lavender">{"("}<span className="gray">me, offers, education, extras</span>{")"}</span>;</span>
+                    <span className="gray">    <span className="cyan">print</span><span className="lavender">{"("}<span className="gray">me, offers, education,</span></span></span>
+                    <span className="gray">    <span className="lavender"><span className="gray">extras</span>{")"}</span>;</span>
                     <span className="gray"><span className="yellow">{"}"}</span>;</span>
                 </code>
             </pre>
