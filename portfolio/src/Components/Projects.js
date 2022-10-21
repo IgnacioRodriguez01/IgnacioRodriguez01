@@ -16,7 +16,7 @@ export default function Projects({lang}) {
         types:{
             group:"👥 Proyecto en grupo",
             course:"📚 Proyecto de curso",
-            wip:"👨‍💻 Proyecto no finalizado",
+            wip:"👨‍💻 En progreso",
         },
         projects:{
             homebanking:"Plantilla de aplicación de Homebanking, incluyendo registro de usuarios, validación de cheques, etc. Desarrollada durante el curso Fullstack Developer del ITBA.",
@@ -30,7 +30,7 @@ export default function Projects({lang}) {
         types:{
             group:"👥 Group project",
             course:"📚 Course project",
-            wip:"👨‍💻 Work in progress",
+            wip:"👨‍💻 In progress",
         },
         projects:{
             homebanking:"Homebanking app template including user registration, checks validation, etc. Developed during ITBA's Fullstack course.",

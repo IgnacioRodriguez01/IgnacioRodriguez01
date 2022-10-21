@@ -87,6 +87,15 @@ function App() {
         const body = document.querySelector('body');
         body.classList.toggle('light');
     }
+    
+    /* Nav Utility */
+    function toggleNav(close) {
+        //Note: Replace querySelector
+        const nav = document.querySelector('.menu');
+        const button = document.querySelector('.nav-burger');
+        nav.classList.toggle('open');
+        button.classList.toggle('open');
+    }
 
     /* Helper for rendering pages */
     function notVisible(page) {
@@ -146,10 +155,15 @@ function App() {
         <Fragment>
 
             <header>
-                <nav className='menu'>
+                <nav className='menu '>
                     <a className="menu-logo" href="#0">
                         <img src={logo} alt="profile-pic"/>
                     </a>
+                    <div className='nav-burger' onClick={() => toggleNav()}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                     <a href="#1" className={notVisible(aboutPage) ? '' : 'disabled-menu'}>{textLang.nav.about}</a>
                     <a href="#2" className={notVisible(skillsPage) ? '' : 'disabled-menu'}>{textLang.nav.skills}</a>
                     <a href="#3" className={notVisible(projectsPage) ? '' : 'disabled-menu'}>{textLang.nav.proyects}</a>
