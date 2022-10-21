@@ -294,6 +294,31 @@ code {
 }
 
 /** About Me **/
+/* .card.about-me {
+    transition: 2s ease-in-out;
+}
+.card.about-me:nth-child(even) {
+    align-self: flex-end;
+    transform: translateX(-10vw);
+}
+.card.about-me:nth-child(odd) {
+    align-self: flex-start;
+    transform: translateX(10vw);
+}
+
+.card.projects > div:nth-child(odd) {
+    align-self: flex-end;
+}
+.card.projects > div:nth-child(even) {
+    align-self: flex-start;
+}
+#\31, #\33 {
+    margin: auto;
+    width: 65vw;
+    max-width: 1000px;
+    min-width: fit-content;
+} */
+
 .about-me img {
     width: 100%;
     max-width: 275px;
@@ -307,7 +332,7 @@ code {
 .about-me p {
     font-size: 17px;
     color: var(--text-alter);
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 /** Skills **/
@@ -423,6 +448,10 @@ code {
     border-radius: 7px;
     margin-right: 10px;
     margin-top: 10px;
+}
+
+.wip > * {
+    filter: grayscale(0.8) brightness(0.8);
 }
 
 /** Contact **/

@@ -1,9 +1,9 @@
 
 
-export default function ProjectCard({title, type, img, description, techstitle, techs}) {
+export default function ProjectCard({title, type, finished, img, description, techstitle, techs}) {
     
     return(
-        <section className='project-card'>
+        <section className={'project-card' + (finished ? '' : ' wip')}>
             <div className="project-header">
                 <h3>{title}</h3>
                 <p>{type}</p>
