@@ -17,6 +17,7 @@ export default function Projects({lang}) {
             group:"👥 Proyecto en grupo",
             course:"📚 Proyecto de curso",
             wip:"👨‍💻 En progreso",
+            mant:"🚧 En mantenimiento",
         },
         projects:{
             homebanking:"Plantilla de aplicación de Homebanking, incluyendo registro de usuarios, validación de cheques, etc. Desarrollada durante el curso Fullstack Developer del ITBA.",
@@ -31,6 +32,7 @@ export default function Projects({lang}) {
             group:"👥 Group project",
             course:"📚 Course project",
             wip:"👨‍💻 In progress",
+            mant:"🚧 In manteinance",
         },
         projects:{
             homebanking:"Homebanking app template including user registration, checks validation, etc. Developed during ITBA's Fullstack course.",
@@ -57,31 +59,34 @@ export default function Projects({lang}) {
 
     const children = [
         <ProjectCard 
-            title='Homebanking'
-            type={textLang.types.group}
+            title='Patients Admin'
+            url='https://adminpacientesvet.vercel.app/'
+            type={textLang.types.wip}
             finished={true}
+            img={PatientsImg}
+            description={textLang.projects.patientsadmin}
+            techstitle={textLang.techstitle}
+            techs={['React', 'Node', 'Express', 'MongoDB', 'TailwindCSS']}
+        />,
+        <ProjectCard 
+            title='Homebanking'
+            url=''
+            type={textLang.types.mant}
+            finished={false}
             img={HomebankingImg}
             description={textLang.projects.homebanking}
             techstitle={textLang.techstitle}
-            techs={['Javascript', 'Bootstrap', 'Django', 'SQLite']}
+            techs={['Javascript', 'Python', 'Bootstrap', 'Django', 'SQLite']}
         />,
         <ProjectCard 
             title='CRM'
+            url='https://ignaciorodriguez01.github.io/crm-static/'
             type={textLang.types.course}
             finished={true}
             img={CRMImg}
             description={textLang.projects.crm}
             techstitle={textLang.techstitle}
             techs={['Javascript', 'HTML5', 'TailwindCSS']}
-        />,
-        <ProjectCard 
-            title='Patients Admin'
-            type={textLang.types.wip}
-            finished={false}
-            img={PatientsImg}
-            description={textLang.projects.patientsadmin}
-            techstitle={textLang.techstitle}
-            techs={['React', 'Node', 'TailwindCSS']}
         />,
     ]
 

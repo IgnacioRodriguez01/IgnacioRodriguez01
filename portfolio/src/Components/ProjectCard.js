@@ -1,6 +1,6 @@
 
 
-export default function ProjectCard({title, type, finished, img, description, techstitle, techs}) {
+export default function ProjectCard({title, url, type, finished, img, description, techstitle, techs}) {
     
     return(
         <section className={'project-card' + (finished ? '' : ' wip')}>
@@ -8,7 +8,9 @@ export default function ProjectCard({title, type, finished, img, description, te
                 <h3>{title}</h3>
                 <p>{type}</p>
             </div>
-            <img src={img} alt="" />
+            <a href={url} target="_blank" style={{pointerEvents: finished ? 'auto' : 'none'}}>
+                <img src={img} alt="" />
+            </a>
             <p className="project-desc">{description}</p>
             <h4>{techstitle}</h4>
             <div className="project-techs">

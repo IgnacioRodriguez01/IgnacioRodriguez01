@@ -67,26 +67,33 @@ export default function Skills({lang}) {
             <div className='skill-img' data-hover="Python">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="python"/>
             </div>
-            {/*
-            <div className='skill-img' data-hover="NodeJS">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="nodejs"/>
-            </div> 
-            */}
+            
             <div className='skill-img' data-hover="Django">
                 <img src={DjangoImg} alt="django"/>
             </div>
         
+            <div className='skill-img' data-hover="NodeJS">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="nodejs"/>
+            </div> 
+            
+            <div className='skill-img' data-hover="Express">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="express"/>
+            </div> 
         </div>,
         <h3>{textLang.db}</h3>,
         <div className="skills-container">
+            <div className='skill-img' data-hover="MySQL">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg" alt="mysql"/>
+            </div>
+
             <div className='skill-img' data-hover="SQLite">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="sqlite"/>
             </div>
-            {/*
+            
             <div className='skill-img' data-hover="MongoDB">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="mongodb"/>
             </div>
-            */}
+           
         </div>,
         <h3>{textLang.tools}</h3>,
         <div className="skills-container">
