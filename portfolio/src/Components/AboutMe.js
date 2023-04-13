@@ -46,13 +46,14 @@ export default function AboutMe({lang}) {
         title:"About Me",
         main:[
             <h3>My name's Ignacio (often called Nacho). I'm studying web development, while looking for my first job.</h3>,
-            <p>I'm mainly focused on the areas of the Backend and the Frontend, but I'm more competent in the last one.
+            <p>I'm mainly focused on the areas of the <strong>Frontend</strong> and the <strong>Backend</strong>, with interest over DevOps.
             </p>,
             <p>
-            I like to bring quality in what I do. I'm creative and attentive to detail, looking for the best posible outcome.
+            I like to bring <strong>quality</strong> in what I do. I'm <strong>creative and attentive to detail</strong>, looking for the best posible outcome.
+            I usually look things from outside to give a different perspective.
             </p>,
             <p>
-            I always look for articulating the teamwork, trying to synchronize with my team.
+            I always look for articulating the teamwork, trying to synchronize with my team and/or promote the coordination among all.
             </p>
         ],
         hobbies:[
@@ -69,6 +70,8 @@ export default function AboutMe({lang}) {
             </div>,
             <p>My quest in this sector started with projects in my journey through the high school, starting with small projects or prototipes as a hobby with an Arduino, to involving myself in bigger proyects with my school. 
             </p>,
+            <p>I highlight this stage because its when I developed my <strong>critical and logical thinking</strong>, my interest for the construction and <strong>the problem solving</strong>, while always being surrounded of programming related issues.
+            <br/><br/>As of today, I'm looking for <strong>new challenges</strong> to face constantly, with new technologies, or proyects that put myself to the test.</p>,
             <p>In my spare time I enjoy doing projects using my technical habilities and/or with programming as a tool.
             </p>
         ]
