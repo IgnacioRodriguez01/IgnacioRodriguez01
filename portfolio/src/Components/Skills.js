@@ -5,6 +5,7 @@ import DjangoImg from '../img/django.svg'
 import GithubImg from '../img/github-bg.svg'
 import TrelloImg from '../img/trello-bg.svg'
 import PsImg from '../img/photoshop-plain.svg'
+import PostmanImg from '../img/postman.svg'
 import npmImg from '../img/npm-bg.svg'
 
 export default function Skills({lang}) {
@@ -105,6 +106,9 @@ export default function Skills({lang}) {
             </div>
             <div className='skill-img' data-hover="VSCode">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode"/>
+            </div>
+            <div className='skill-img' data-hover="Postman">
+                <img src={PostmanImg} alt="postman"/>
             </div>
             <div className='skill-img' data-hover="Git">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="git"/>

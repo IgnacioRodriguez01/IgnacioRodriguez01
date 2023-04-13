@@ -7,10 +7,11 @@
 
 :root {
     --gradient: linear-gradient(90deg, #EDCA85 -2.79%, #F097AD 29.91%, #A16EEA 62.6%, #A0E2FE 95.3%);
-    
+    --gradienttxt: linear-gradient(-45deg, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe);
+    --gradientbg: linear-gradient(to bottom, #1b2430, #1b2430, #18202b, #161e29, #151c27);
     --primary: #1B2430;
-    --secondary: #434669;
-    --secondary-bg: #253344;
+    --secondary: rgba(67, 70, 105, .6);
+    --secondary-bg: rgba(37, 51, 68, .7);
     --tertiary: #816797;
     --text: #FFFFFF;
     --text-alter: #FFFFFF;
@@ -30,21 +31,24 @@
 }
 
 body {
-    background: var(--primary);
+    background: var(--gradientbg);
 }
 
 body.light {
-    --primary: #fff7f1;
-    --secondary: #FAB483;
-    --secondary-bg: #585655;
-    --tertiary: #D67D3E;
-    --text: #3D0E1E;
-    --text-alter: #FFFFFF;
-    --text-2: #db9461;
+    --gradient: linear-gradient(90deg, #65bee3 -2.79%, #ca97f0 29.91%, #a16eea 62.6%, #52a7cb 95.3%);
+    --gradienttxt: linear-gradient(-45deg, #65bee3, #ca97f0, #a16eea, #52a7cb, #65bee3, #ca97f0, #a16eea, #52a7cb, #65bee3, #ca97f0, #a16eea, #52a7cb, #65bee3, #ca97f0, #a16eea, #52a7cb);
+    --gradientbg: #f1fbff;
+    --primary: #f1fbff;
+    --secondary: rgba(76, 180, 250, 0.5);
+    --secondary-bg: rgba(179, 207, 251, 0.4);
+    --tertiary: #b4a3fb;
+    --text: #58649d;
+    --text-alter: #525f95;
+    --text-2: #c78143;
 }
 
 body.light header{
-    background: rgba(105, 77, 67, 0.7);
+    background: rgba(114, 170, 255, 0.7);
 }
 
 header {
@@ -240,7 +244,7 @@ header {
     width: min-content;
 }
 .front-page h1 {
-    background: linear-gradient(-45deg, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe);
+    background: var(--gradienttxt);
     background-size: 800% 800%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -314,7 +318,7 @@ header {
     width: 90vw;
     border-radius: 7px;
     box-sizing: border-box;
-    padding: 15px 10px 20px 10px;
+    padding: 15px 15px 20px 15px;
     font-size: 15px;
     margin-top: 50px;
 }
@@ -373,7 +377,7 @@ code {
     bottom: calc(15px + 25px);
     
     font-size: 40px;
-    background: linear-gradient(-45deg, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe);
+    background: var(--gradienttxt);
     background-size: 800% 800%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -416,6 +420,8 @@ code {
     width: 100%;
     max-width: 275px;
     margin-bottom: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
 }
 .about-me h3 {
     font-size: 20px;
@@ -426,6 +432,19 @@ code {
     font-size: 17px;
     color: var(--text-alter);
     margin-top: 25px;
+}
+
+.vid-cont {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.vid-cont video {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 }
 
 /** Skills **/
@@ -506,7 +525,7 @@ code {
 .project-header h3{
     font-size: 22px;
     width: fit-content;
-    background: linear-gradient(-45deg, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe, #edca85, #f097ad, #a16eea, #a0e2fe);
+    background: var(--gradienttxt);
     background-size: 800% 800%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -547,6 +566,9 @@ code {
 
 .wip > * {
     filter: grayscale(0.8) brightness(0.8);
+}
+.wip {
+    filter: grayscale(0.8);
 }
 
 /** Contact **/
