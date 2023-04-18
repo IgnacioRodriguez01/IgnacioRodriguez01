@@ -61,7 +61,7 @@ function App() {
     /* Main lang */
     const textMainES = {
         title:"Hola, soy Ignacio Rodriguez",
-        subtitle:"Desarrolador Web de Buenos Aires, Argentina",
+        subtitle:"Desarrollador Web de Buenos Aires, Argentina",
         nav:{
             about:"Sobre Mí",
             skills:"Habilidades",

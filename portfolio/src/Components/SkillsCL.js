@@ -70,16 +70,17 @@ export default function SkillsCL({pages, dispatch, lang}) {
                     <span className="green">        'javascript', 'react'</span> 
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     <span className="gray">    backend: <span className="cyan">{"["}</span></span>
-                    <span className="green">        'python'</span>
+                    <span className="green">        'python', 'node'</span>
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     <span className="gray">    databases: <span className="cyan">{"["}</span></span>
-                    <span className="green">        'mongodb', 'sqlite'</span>
+                    <span className="green">        'mongodb', 'sqlite',</span>
+                    <span className="green">        'mysql'</span>
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     <span className="gray">    tools: <span className="cyan">{"["}</span></span>
                     <span className="green">        'figma', 'photoshop',</span>
                     <span className="green">        'vscode', 'git',</span> 
                     <span className="green">        'github', 'npm',</span> 
-                    <span className="green">        'trello'</span> 
+                    <span className="green">        'trello', 'postman'</span> 
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     
                     <span className="gray"><span className="yellow">{"}"}</span>;</span>
