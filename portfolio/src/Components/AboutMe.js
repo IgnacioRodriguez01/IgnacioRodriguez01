@@ -11,7 +11,7 @@ export default function AboutMe({lang}) {
     const textAboutES = {
         title:"Sobre Mí",
         main:[
-            <h3>Mi nombre es Ignacio (también me dicen Nacho). Estoy estudiando desarrollo web, mientras busco mi primer trabajo.</h3>,
+            <h3>Mi nombre es Ignacio (también me dicen Nacho). Estoy estudiando desarrollo web, mientras trabajo como desarrollador full stack.</h3>,
             <p>Estoy principalmente enfocado en las áreas del <strong>Frontend</strong> y el <strong>Backend</strong>, con interés sobre DevOps.
             </p>,
             <p>
@@ -45,7 +45,7 @@ export default function AboutMe({lang}) {
     const textAboutEN = {
         title:"About Me",
         main:[
-            <h3>My name's Ignacio (often called Nacho). I'm studying web development, while looking for my first job.</h3>,
+            <h3>My name's Ignacio (often called Nacho). I'm studying web development, while working as a full stack developer.</h3>,
             <p>I'm mainly focused on the areas of the <strong>Frontend</strong> and the <strong>Backend</strong>, with interest over DevOps.
             </p>,
             <p>
