@@ -468,6 +468,9 @@ code {
 .skill-img.undersize img {
     width: 55px;
 }
+.skill-img.oversize img {
+    width: 65px;
+}
  /* Hover text (click for mobile) */
 .skill-img {
     position: relative;

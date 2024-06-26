@@ -128,15 +128,18 @@ export default function Skills({lang}) {
             <div className='skill-img' data-hover="Postman">
                 <img src={PostmanImg} alt="postman"/>
             </div>
-            <div className='skill-img' data-hover="Git">
+            {/* <div className='skill-img' data-hover="Git">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="git"/>
-            </div>
+            </div> */}
             <div className='skill-img' data-hover="GitHub">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github"/>
             </div>
-            <div className='skill-img undersize' data-hover="Trello">
-                <img src={TrelloImg} alt="trello"/>
+            <div className='skill-img' data-hover="GitLab">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="gitlab"/>
             </div>
+            <div className='skill-img oversize' data-hover="Docker">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="docker"/>
+            </div>          
             <div className='skill-img' data-hover="Jira">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="jira"/>
             </div>

@@ -78,9 +78,9 @@ export default function SkillsCL({pages, dispatch, lang}) {
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     <span className="gray">    tools: <span className="cyan">{"["}</span></span>
                     <span className="green">        'figma', 'photoshop',</span>
-                    <span className="green">        'vscode', 'git',</span> 
-                    <span className="green">        'github', 'jira',</span> 
-                    <span className="green">        'trello', 'postman'</span> 
+                    <span className="green">        'vscode', 'postman',</span> 
+                    <span className="green">        'git', 'docker',</span> 
+                    <span className="green">        'jira'</span> 
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     
                     <span className="gray"><span className="yellow">{"}"}</span>;</span>
