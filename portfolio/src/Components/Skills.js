@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import { useSpring, useTrail, animated } from 'react-spring'
 
 import DjangoImg from '../img/django.svg'
+import CockroachImg from '../img/cockroach.png'
+import HazelcastImg from '../img/hazelcast.svg'
 import GithubImg from '../img/github-bg.svg'
 import TrelloImg from '../img/trello-bg.svg'
 import PsImg from '../img/photoshop-plain.svg'
@@ -51,7 +53,7 @@ export default function Skills({lang}) {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="bootstrap"/>
             </div>
             <div className='skill-img' data-hover="TailwindCSS">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="tailwindcss"/>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="tailwindcss"/>
             </div>
             <div className='skill-img' data-hover="Sass">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="sass"/>
@@ -60,7 +62,10 @@ export default function Skills({lang}) {
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript"/>
             </div>
             <div className='skill-img' data-hover="React">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="react"/>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" alt="react"/>
+            </div>
+            <div className='skill-img' data-hover="React Native">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="reactnative"/>
             </div>
         </div>,
         <h3>Backend</h3>,
@@ -73,6 +78,10 @@ export default function Skills({lang}) {
                 <img src={DjangoImg} alt="django"/>
             </div>
         
+            <div className='skill-img' data-hover="Flask">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="flask"/>
+            </div> 
+
             <div className='skill-img' data-hover="NodeJS">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="nodejs"/>
             </div> 
@@ -80,11 +89,14 @@ export default function Skills({lang}) {
             <div className='skill-img' data-hover="Express">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="express"/>
             </div> 
+            <div className='skill-img' data-hover="GraphQL">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg" alt="express"/>
+            </div> 
         </div>,
         <h3>{textLang.db}</h3>,
         <div className="skills-container">
             <div className='skill-img' data-hover="MySQL">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg" alt="mysql"/>
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="mysql"/>
             </div>
 
             <div className='skill-img' data-hover="SQLite">
@@ -93,6 +105,12 @@ export default function Skills({lang}) {
             
             <div className='skill-img' data-hover="MongoDB">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="mongodb"/>
+            </div>
+            <div className='skill-img' data-hover="CockroachDB">
+                <img src={CockroachImg} alt="cockroachDB"/>
+            </div>
+            <div className='skill-img' data-hover="Hazelcast">
+                <img src={HazelcastImg} alt="hazelcast"/>
             </div>
            
         </div>,
@@ -116,11 +134,11 @@ export default function Skills({lang}) {
             <div className='skill-img' data-hover="GitHub">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github"/>
             </div>
-            <div className='skill-img' data-hover="npm">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="npm"/>
-            </div>
             <div className='skill-img undersize' data-hover="Trello">
                 <img src={TrelloImg} alt="trello"/>
+            </div>
+            <div className='skill-img' data-hover="Jira">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="jira"/>
             </div>
         </div>
     ]

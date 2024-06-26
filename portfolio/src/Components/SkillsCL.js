@@ -73,13 +73,13 @@ export default function SkillsCL({pages, dispatch, lang}) {
                     <span className="green">        'python', 'node'</span>
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     <span className="gray">    databases: <span className="cyan">{"["}</span></span>
-                    <span className="green">        'mongodb', 'sqlite',</span>
+                    <span className="green">        'mongodb', 'hazelcast',</span>
                     <span className="green">        'mysql'</span>
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     <span className="gray">    tools: <span className="cyan">{"["}</span></span>
                     <span className="green">        'figma', 'photoshop',</span>
                     <span className="green">        'vscode', 'git',</span> 
-                    <span className="green">        'github', 'npm',</span> 
+                    <span className="green">        'github', 'jira',</span> 
                     <span className="green">        'trello', 'postman'</span> 
                     <span className="gray">    <span className="cyan">{"]"}</span>,</span> 
                     
