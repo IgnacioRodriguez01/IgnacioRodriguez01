@@ -9,7 +9,7 @@
 
 ## **A little about me...**
 
-#### 🔌 I'm an electronics technician.<br><br>👀 I’m interested in Frontend Development, Backend Development, AI, DevOps, Arduino, Informatics, and coding in general.<br><br>🌱 I’m currently learning various web technologies, while i work on th field.<br><br>📝 My future techs to learn are ~~PostgreSQL~~, ~~Redis~~ or Firebase (maybe), GraphQL, ~~Docker~~ & Kubernetes, Nginx, and another language like Go or Java.<br><br>💞️ I’m looking to collaborate on tech companies looking for junior devs, open to letting my knowledge grow along the way.
+#### 🔌 I'm an electronics technician.<br><br>👀 I’m interested in Frontend Development, Backend Development, AI, DevOps, Arduino, Informatics, and coding in general.<br><br>🌱 I’m currently learning various web technologies, while i work on th field.<br><br>📝 My future techs to learn are ~~PostgreSQL~~, ~~Redis~~ or Firebase (maybe), ~~GraphQL~~, ~~Docker~~ & ~~Kubernetes~~, Nginx, and another language like Go or Java.<br><br>💞️ I’m looking to collaborate on tech companies looking for junior devs, open to letting my knowledge grow along the way.
 
 <br/>
 
