@@ -6,6 +6,12 @@
 </div>
 </a>
 
+<br/>
+
+**NOTE:** *This readme is outdated... Also don't expect to see a lot of green dots, all my work is all across private corporate repos :p*
+
+<br/>
+<br/>
 
 ## **A little about me...**
 
